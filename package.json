@@ -3,7 +3,11 @@
   "version": "0.1.0",
   "private": true,
   "devDependencies": {
-    "react-scripts": "0.7.0"
+    "react-scripts": "0.7.0",
+    "selenium-webdriver": "^3.0.1",
+    "wdio-dot-reporter": "0.0.6",
+    "wdio-mocha-framework": "^0.5.3",
+    "webdriverio": "^4.4.0"
   },
   "dependencies": {
     "react": "^15.3.2",
@@ -13,6 +17,7 @@
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test --env=jsdom",
+    "swd": "selenium-webdriver",
     "eject": "react-scripts eject"
   }
 }
