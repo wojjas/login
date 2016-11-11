@@ -9,8 +9,8 @@ class App extends Component {
         super(props);
 
         this.state = {username: ''};
-        this.getUsername = this.getUsername.bind(this);
-        this.getPassword = this.getPassword.bind(this);
+        this.setUsername = this.setUsername.bind(this);
+        this.setPassword = this.setPassword.bind(this);
         this.handleCancel = this.handleCancel.bind(this);
         this.handleLogin = this.handleLogin.bind(this);
     }
@@ -24,11 +24,11 @@ class App extends Component {
         this.setState({username: '', password: ''});
     }
 
-    getUsername(username) {
+    setUsername(username) {
         this.setState({username: username});
     }
 
-    getPassword(password) {
+    setPassword(password) {
         this.setState({password: password});
     }
 
@@ -37,8 +37,8 @@ class App extends Component {
     }
 
     handleLogin(e) {
-         const {username, password} = this.state;
-         this && this.clearFields();
+        const {username, password} = this.state;
+        this && this.clearFields();
 
         if (password === '007') {
             window.alert('Login SUCCEEDED!\n' +
@@ -58,9 +58,13 @@ class App extends Component {
                     <h2>Welcome to React</h2>
                 </div>
                 <form onSubmit={this.handleLogin}>
-                    <InputField label="Username" value={this.state.username} valueChanged={this.getUsername}/>
-                    <InputField label="Password" value={this.state.password} type="password"
-                                valueChanged={this.getPassword}/>
+                    <InputField label="Username"
+                                value={this.state.username}
+                                valueChanged={this.setUsername}/>
+                    <InputField label="Password"
+                                value={this.state.password}
+                                type="password"
+                                valueChanged={this.setPassword}/>
                     <button type="button" onClick={this.handleCancel} disabled={!isCancelEnabled}>Cancel</button>
                     <button type="submit" onClick={this.handleLogin} disabled={!this.isLoginBtnEnabled()}>Login</button>
                 </form>
